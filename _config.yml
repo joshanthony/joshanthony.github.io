@@ -1,0 +1,31 @@
+title: Josh Anthony
+description: Notes and insights from a software engineer
+author: Josh Anthony
+url: "https://joshanthony.github.io"
+baseurl: ""
+
+markdown: kramdown
+kramdown:
+  input: GFM
+highlighter: rouge
+
+permalink: /:slug/
+timezone: UTC
+
+show_excerpts: true
+
+plugins:
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      author: Josh Anthony
+      excerpt_separator: "<!--more-->"
+      seo: true
+
+exclude:
+  - README.md
