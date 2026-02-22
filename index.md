@@ -10,10 +10,8 @@ description: Notes and insights from a software engineer.
       <li>
         <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <p class="post-meta">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
-          {% if post.last_modified_at %}
-            · Updated {{ post.last_modified_at | date: "%B %-d, %Y" }}
-          {% endif %}
+          {% assign display_date = post.last_modified_at | default: post.date %}
+          <time datetime="{{ display_date | date_to_xmlschema }}">{{ display_date | date: "%b %-d, %Y" }}</time>
         </p>
         {% if post.excerpt %}
           <p>{{ post.excerpt | strip_html }}</p>
