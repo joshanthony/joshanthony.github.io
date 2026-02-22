@@ -1,12 +1,11 @@
 :root {
   color-scheme: dark;
-  --bg: #0b0d12;
-  --panel: #10141e;
-  --text: #e6eaf2;
-  --muted: #a2acbf;
-  --accent: #8ab4ff;
-  --border: #21283a;
-  --code-bg: #0f1320;
+  --bg: #171a22;
+  --panel: #1d2230;
+  --text: #e2e6ef;
+  --muted: #b1b8c9;
+  --border: #30384c;
+  --code-bg: #1a2030;
   --max-width: 760px;
 }
 
@@ -24,8 +23,8 @@ body {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 21px;
-  line-height: 1.75;
+  font-size: 18px;
+  line-height: 1.72;
 }
 
 .container {
@@ -91,7 +90,7 @@ body {
 .nav a[aria-current="page"],
 .nav a:hover,
 a:hover {
-  color: var(--accent);
+  color: var(--text);
 }
 
 main {
@@ -127,7 +126,9 @@ blockquote {
 }
 
 a {
-  color: var(--accent);
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.12em;
 }
 
 .intro p {
@@ -138,23 +139,32 @@ a {
 .post-list {
   list-style: none;
   padding: 0;
-  margin: 1.25rem 0 0;
+  margin: 0;
   display: grid;
-  gap: 1.25rem;
+  gap: 0;
 }
 
 .post-list li {
   border-bottom: 1px solid var(--border);
-  padding: 0.2rem 0 1rem;
+  padding: 1rem 0;
 }
 
 .post-list li:last-child {
   border-bottom: 0;
 }
 
+.post-list li > :last-child {
+  margin-bottom: 0;
+}
+
+.post-list h3 {
+  margin: 0;
+}
+
 .post-meta {
   color: var(--muted);
   font-size: 0.9em;
+  margin: 0.35rem 0 0.6rem;
 }
 
 .post-content {
@@ -215,5 +225,5 @@ pre code,
 }
 
 .copy-code:hover {
-  color: var(--accent);
+  color: var(--text);
 }

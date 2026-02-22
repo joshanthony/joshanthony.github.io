@@ -4,13 +4,7 @@ title: Home
 description: Notes and insights from a software engineer.
 ---
 
-<section class="intro" aria-labelledby="intro-heading">
-  <h1 id="intro-heading">Josh Anthony</h1>
-  <p>Short notes, engineering insights, and things worth remembering.</p>
-</section>
-
-<section aria-labelledby="posts-heading">
-  <h2 id="posts-heading">Posts</h2>
+<section>
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
@@ -26,7 +20,7 @@ description: Notes and insights from a software engineer.
         {% endif %}
       </li>
     {% else %}
-      <li><p>No posts yet — start with a file in <strong>_posts/</strong>.</p></li>
+      <li><p>No posts yet.</p></li>
     {% endfor %}
   </ul>
 </section>
