@@ -25,7 +25,10 @@
         <nav aria-label="Primary" class="nav">
           <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>Home</a>
           <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a>
-          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">Dark</button>
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">
+            <span class="theme-icon" aria-hidden="true"></span>
+            <span class="sr-only">Toggle color theme</span>
+          </button>
         </nav>
       </div>
     </header>

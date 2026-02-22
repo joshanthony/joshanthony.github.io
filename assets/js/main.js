@@ -1,25 +1,31 @@
 (() => {
   const root = document.documentElement;
   const toggle = document.querySelector("[data-theme-toggle]");
+  const toggleIcon = toggle?.querySelector(".theme-icon");
   const savedTheme = localStorage.getItem("theme");
+  const iconSun = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><line x1="12" y1="2.5" x2="12" y2="5.1"></line><line x1="12" y1="18.9" x2="12" y2="21.5"></line><line x1="2.5" y1="12" x2="5.1" y2="12"></line><line x1="18.9" y1="12" x2="21.5" y2="12"></line><line x1="5.2" y1="5.2" x2="7.1" y2="7.1"></line><line x1="16.9" y1="16.9" x2="18.8" y2="18.8"></line><line x1="16.9" y1="7.1" x2="18.8" y2="5.2"></line><line x1="5.2" y1="18.8" x2="7.1" y2="16.9"></line></svg>';
+  const iconMoon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.1a8.6 8.6 0 1 1-10.6-10.6 7 7 0 1 0 10.6 10.6Z"></path></svg>';
 
   if (savedTheme === "dark" || savedTheme === "light") {
     root.setAttribute("data-theme", savedTheme);
   }
 
-  const updateToggleLabel = () => {
+  const updateToggleIcon = () => {
     if (!toggle) return;
     const currentTheme = root.getAttribute("data-theme") === "dark" ? "dark" : "light";
-    toggle.textContent = currentTheme === "dark" ? "Light" : "Dark";
+    if (toggleIcon) {
+      toggleIcon.innerHTML = currentTheme === "dark" ? iconSun : iconMoon;
+    }
+    toggle.setAttribute("aria-label", currentTheme === "dark" ? "Switch to light mode" : "Switch to dark mode");
   };
 
   if (toggle) {
-    updateToggleLabel();
+    updateToggleIcon();
     toggle.addEventListener("click", () => {
       const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", nextTheme);
       localStorage.setItem("theme", nextTheme);
-      updateToggleLabel();
+      updateToggleIcon();
     });
   }
 
@@ -29,8 +35,9 @@
   const getLanguage = (codeBlock) => {
     const classes = [...codeBlock.classList, ...(codeBlock.parentElement?.classList ?? [])];
     const langClass = classes.find((value) => value.startsWith("language-"));
-    if (!langClass) return "text";
-    return langClass.replace("language-", "").replace(/[-_]+/g, " ");
+    if (!langClass) return "md";
+    const language = langClass.replace("language-", "").replace(/[-_]+/g, " ");
+    return language === "text" || language === "markdown" ? "md" : language;
   };
 
   const canCopy = Boolean(navigator.clipboard);
