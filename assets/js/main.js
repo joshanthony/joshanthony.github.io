@@ -35,9 +35,9 @@
   const getLanguage = (codeBlock) => {
     const classes = [...codeBlock.classList, ...(codeBlock.parentElement?.classList ?? [])];
     const langClass = classes.find((value) => value.startsWith("language-"));
-    if (!langClass) return "md";
+    if (!langClass) return "text";
     const language = langClass.replace("language-", "").replace(/[-_]+/g, " ");
-    return language === "text" || language === "markdown" ? "md" : language;
+    return language === "markdown" ? "text" : language;
   };
 
   const canCopy = Boolean(navigator.clipboard);
