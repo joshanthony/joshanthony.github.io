@@ -14,7 +14,7 @@
   color-scheme: dark;
   --bg:      #0f1711;
   --panel:   #162019;
-  --text:    #dde8de;
+  --text:    #b8ccba;
   --muted:   #7a9880;
   --accent:  #5ec47a;
   --border:  #233228;
@@ -211,10 +211,6 @@ a {
 .post-list li {
   border-bottom: 0.0625rem solid var(--border);
   padding: 1.25rem 0;
-}
-
-.post-list li:first-child {
-  border-top: 0.0625rem solid var(--border);
 }
 
 .post-list li:last-child {

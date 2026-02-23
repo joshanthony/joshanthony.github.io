@@ -4,28 +4,28 @@ description: A minimal workflow for using AI coding tools with research, plannin
 last_modified_at: 2026-02-22
 ---
 
-My current workflow for AI-assisted coding (I mostly use Copilot)
+My current workflow for AI-assisted coding
 
 <!--more-->
 
-Every task follows the same sequence: custom instructions upfront, then research, plan, review, generate a todo list and then implementation. The process produces three main files per task that keep the model grounded in the actual codebase:
+Every task follows the same sequence: custom instructions upfront, then **research**, **plan**, review, generate a todo list and **implement**. The process produces three main files per task that keep the model grounded in the actual codebase:
 
 - `research.md` — a deep review of what the current system does.
 - `plan.md` — proposed approach and file-level changes. I add inline notes here to correct until I am happy with the plan.
 - `todo.md` — a list of implementation tasks.
 
 ## Contents
-- [Stage 0: Custom instructions](#stage-0-custom-instructions)
-- [Stage 1: Research](#stage-1-research)
-- [Stage 2: Plan](#stage-2-plan)
-- [Stage 3: Review](#stage-3-review)
-- [Stage 4: Generate todo](#stage-4-generate-todo)
-- [Stage 5: Implement](#stage-5-implement)
-- [Stage 6: Iterate](#stage-6-iterate)
+- [0: Custom instructions](#0-custom-instructions)
+- [1: Research](#1-research)
+- [2: Plan](#2-plan)
+- [3: Review](#3-review)
+- [4: Generate todo](#4-generate-todo)
+- [5: Implement](#5-implement)
+- [6: Iterate](#6-iterate)
 
-## Stage 0: Custom instructions
+## 0: Custom instructions
 
-Ensure we have a well maintained project-level instructions file that defines conventions and rules for our codebase. Every major tool has this concept e.g. `.github/copilot-instructions.md` for Copilot. Put the basic intro, stack, patterns and constraints there so you never have to repeat them in prompts. use language like `don't do this, do this instead`
+Ensure we have a well maintained project-level instructions file that defines conventions and rules for our codebase. Every major tool has this concept e.g. `.github/copilot-instructions.md`. Put the basic intro, stack, patterns and constraints there so you never have to repeat them in prompts. use language like `don't do this, do this instead`
 
 Example:
 ```text
@@ -36,7 +36,7 @@ Do not introduce new dependencies without flagging them first.
 Do not add comments unless the logic is non-obvious.
 ```
 
-## Stage 1: Research
+## 1: Research
 
 We need the agent to have a deep understanding of the existing code within its context. The way we do this is to give it some files as context and then ask the model for a deep review and written plan. No implementation starts here.
 
@@ -58,7 +58,7 @@ If you cannot find something, say so explicitly. Do not infer or speculate.
 Do not implement anything yet.
 ```
 
-## Stage 2: Plan
+## 2: Plan
 
 We then need to propose a concrete implementation plan.
 
@@ -85,7 +85,7 @@ If a new pattern is necessary, flag it explicitly as a decision point.
 Do not implement anything yet.
 ```
 
-## Stage 3: Review
+## 3: Review
 Goal: provide feedback and constraints before implementation.
 
 Carefully review `plan.md`, add inline notes and ask for an update to the plan. This is the most important part of the whole workflow, mistakes caught here are free. Mistakes caught during implementation are expensive.
@@ -107,7 +107,7 @@ Keep the same structure unless a note requests a restructure.
 Do not implement yet.
 ```
 
-## Stage 4: Generate todo
+## 4: Generate todo
 Goal: convert plan into trackable execution steps.
 
 Output required: `todo.md` with small actionable tasks and subtasks as needed.
@@ -122,7 +122,7 @@ Each task should be specific and testable.
 Do not implement yet.
 ```
 
-## Stage 5: Implement
+## 5: Implement
 Goal: execute exactly what is in plan + todo.
 
 Implementation starts only after plan review is done.
@@ -148,7 +148,7 @@ Read docs/<date-task>/research.md and docs/<date-task>/todo.md.
 Continue from where we left off.
 ```
 
-## Stage 6: Iterate
+## 6: Iterate
 Use short, direct feedback tied to specific outcomes.
 
 Examples:
