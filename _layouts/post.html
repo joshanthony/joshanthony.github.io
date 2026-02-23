@@ -8,7 +8,7 @@ layout: default
     {% assign md_raw_url = "https://raw.githubusercontent.com/" | append: site.repository | append: "/main/" | append: page.path %}
     <p class="post-meta post-meta-row">
       <time datetime="{{ display_date | date_to_xmlschema }}">{{ display_date | date: "%b %-d, %Y" }}</time>
-      <button type="button" class="copy-post-md" data-copy-md data-md-url="{{ md_raw_url }}">Copy MD</button>
+      <button type="button" class="copy-post-md" data-copy-md data-md-url="{{ md_raw_url }}">Copy text</button>
     </p>
   </header>
   <div class="post-content">
