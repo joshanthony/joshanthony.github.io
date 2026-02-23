@@ -256,6 +256,29 @@ a {
   margin: 0;
 }
 
+.post-meta-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.copy-post-md {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.75em;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.12em;
+}
+
+.copy-post-md:hover {
+  color: var(--text);
+}
+
 .post-summary {
   color: var(--muted);
   margin: 0.45rem 0 0;

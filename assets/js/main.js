@@ -32,6 +32,29 @@
     });
   }
 
+  const copyMdButton = document.querySelector("[data-copy-md]");
+  if (copyMdButton && navigator.clipboard) {
+    copyMdButton.addEventListener("click", async () => {
+      const mdUrl = copyMdButton.getAttribute("data-md-url");
+      if (!mdUrl) return;
+      const originalText = copyMdButton.textContent;
+
+      try {
+        const response = await fetch(mdUrl, { cache: "no-store" });
+        if (!response.ok) throw new Error("Unable to fetch markdown source");
+        const markdown = await response.text();
+        await navigator.clipboard.writeText(markdown);
+        copyMdButton.textContent = "Copied";
+      } catch {
+        copyMdButton.textContent = "Failed";
+      }
+
+      window.setTimeout(() => {
+        copyMdButton.textContent = originalText;
+      }, 1200);
+    });
+  }
+
   const blocks = document.querySelectorAll("pre > code");
   if (!blocks.length) return;
 
