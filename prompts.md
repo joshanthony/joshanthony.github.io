@@ -50,6 +50,15 @@ Keep the same structure unless a note requests a restructure.
 Do not implement yet.
 ```
 
+## To-Do {#todo}
+
+```prompt
+Create docs/TASK_NAME/todo.md from docs/TASK_NAME/plan.md.
+Break work into phases and granular tasks.
+Each task should be specific and testable.
+Do not implement yet.
+```
+
 ## Implement {#implement}
 
 ```prompt
