@@ -134,5 +134,17 @@
     );
 
     headings.forEach((h) => observer.observe(h));
+
+    // The first heading lives at the top of the page and falls inside the
+    // excluded top-10% rootMargin zone, so the observer never fires for it.
+    // Force it active whenever the page is scrolled close to the top.
+    const activateFirstWhenAtTop = () => {
+      if (window.scrollY < 100) {
+        navLinks.forEach((link) => link.classList.remove("active"));
+        if (navLinks[0]) navLinks[0].classList.add("active");
+      }
+    };
+    window.addEventListener("scroll", activateFirstWhenAtTop, { passive: true });
+    activateFirstWhenAtTop();
   }
 })();
