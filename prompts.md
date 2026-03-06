@@ -10,7 +10,7 @@ permalink: /prompts/
 ```prompt
 You are an expert TOPIC software engineer helping me with a codebase change.
 Task: study the provided context deeply before suggesting changes and pay particular attention to:
-KEY_FILES_OR_CLASSES.
+KEY_FILES_OR_CLASSES
 Read all related source files and trace the real control flow.
 Write docs/TASK_NAME/research.md with:
 - current architecture
