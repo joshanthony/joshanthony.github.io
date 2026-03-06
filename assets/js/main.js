@@ -117,34 +117,24 @@
   // Prompts page sidebar scrollspy
   const promptsSidebar = document.querySelector(".prompts-sidebar");
   if (promptsSidebar) {
-    const headings = document.querySelectorAll(".prompts-content h2[id]");
+    const headings = Array.from(document.querySelectorAll(".prompts-content h2[id]"));
     const navLinks = promptsSidebar.querySelectorAll("a[href^='#']");
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            navLinks.forEach((link) => link.classList.remove("active"));
-            const activeLink = promptsSidebar.querySelector(`a[href="#${entry.target.id}"]`);
-            if (activeLink) activeLink.classList.add("active");
-          }
-        });
-      },
-      { rootMargin: "-10% 0px -75% 0px" }
-    );
-
-    headings.forEach((h) => observer.observe(h));
-
-    // The first heading lives at the top of the page and falls inside the
-    // excluded top-10% rootMargin zone, so the observer never fires for it.
-    // Force it active whenever the page is scrolled close to the top.
-    const activateFirstWhenAtTop = () => {
-      if (window.scrollY < 100) {
-        navLinks.forEach((link) => link.classList.remove("active"));
-        if (navLinks[0]) navLinks[0].classList.add("active");
+    const updateActive = () => {
+      // Walk headings top-to-bottom; the last one whose top edge is at or above
+      // the trigger line (120px from the top) is the active section.
+      let activeId = headings[0]?.id;
+      for (const heading of headings) {
+        if (heading.getBoundingClientRect().top <= 120) {
+          activeId = heading.id;
+        }
       }
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${activeId}`);
+      });
     };
-    window.addEventListener("scroll", activateFirstWhenAtTop, { passive: true });
-    activateFirstWhenAtTop();
+
+    window.addEventListener("scroll", updateActive, { passive: true });
+    updateActive();
   }
 })();
