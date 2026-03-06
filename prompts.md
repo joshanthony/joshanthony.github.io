@@ -5,7 +5,7 @@ layout: prompts
 permalink: /prompts/
 ---
 
-# Prompts I Use
+# Useful Prompts
 
 ### Research {#research}
 
