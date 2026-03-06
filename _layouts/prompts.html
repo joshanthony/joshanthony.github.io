@@ -34,8 +34,23 @@
       </div>
     </header>
 
-    <main id="content" class="container" role="main">
-      {{ content }}
+    <main id="content" class="prompts-outer" role="main">
+      <div class="prompts-page">
+        <aside class="prompts-sidebar">
+          <nav aria-label="Prompts contents">
+            <p class="prompts-nav-title">Contents</p>
+            <ul class="prompts-nav-list">
+              <li><a href="#research">Research</a></li>
+              <li><a href="#plan">Plan</a></li>
+              <li><a href="#review">Review</a></li>
+              <li><a href="#implement">Implement</a></li>
+            </ul>
+          </nav>
+        </aside>
+        <div class="prompts-content">
+          {{ content }}
+        </div>
+      </div>
     </main>
 
     <footer class="site-footer" role="contentinfo">

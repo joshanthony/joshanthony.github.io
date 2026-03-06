@@ -113,4 +113,26 @@
 
     shell.append(meta, blockContainer);
   });
+
+  // Prompts page sidebar scrollspy
+  const promptsSidebar = document.querySelector(".prompts-sidebar");
+  if (promptsSidebar) {
+    const headings = document.querySelectorAll(".prompts-content h2[id]");
+    const navLinks = promptsSidebar.querySelectorAll("a[href^='#']");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navLinks.forEach((link) => link.classList.remove("active"));
+            const activeLink = promptsSidebar.querySelector(`a[href="#${entry.target.id}"]`);
+            if (activeLink) activeLink.classList.add("active");
+          }
+        });
+      },
+      { rootMargin: "-10% 0px -75% 0px" }
+    );
+
+    headings.forEach((h) => observer.observe(h));
+  }
 })();
