@@ -5,15 +5,11 @@ layout: prompts
 permalink: /prompts/
 ---
 
-# Prompts
+# Prompts I Use
 
-A collection of prompts for the AI-assisted coding workflow. Replace all uppercase placeholders before use — double-click any placeholder to select it.
+### Research {#research}
 
-## Research {#research}
-
-Study the codebase deeply before writing any code. Run this at the start of every task.
-
-```text
+```prompt
 You are an expert TOPIC software engineer helping me with a codebase change.
 Task: study the provided context deeply before suggesting changes and pay particular attention to:
 KEY_FILES_OR_CLASSES.
@@ -29,11 +25,9 @@ If you cannot find something, say so explicitly. Do not infer or speculate.
 Do not implement anything yet.
 ```
 
-## Plan {#plan}
+### Plan {#plan}
 
-Propose a concrete implementation plan based on the research.
-
-```text
+```prompt
 Use docs/TASK_NAME/research.md as the source of truth.
 Goal: 
 FEATURE_GOAL
@@ -49,22 +43,18 @@ If a new pattern is necessary, flag it explicitly as a decision point.
 Do not implement anything yet.
 ```
 
-## Review {#review}
+### Review {#review}
 
-After adding inline notes to `plan.md`, send this to address them.
-
-```text
+```prompt
 I added inline notes and feedback to docs/TASK_NAME/plan.md (usually prefixed with a dash e.g. "- this is not needed").
 Address every note and update the document in place.
 Keep the same structure unless a note requests a restructure.
 Do not implement yet.
 ```
 
-## Implement {#implement}
+### Implement {#implement}
 
-Execute the plan once the review is complete.
-
-```text
+```prompt
 Implement everything PHASE_NUMBER in docs/TASK_NAME/todo.md using the information provided in docs/TASK_NAME/plan.md
 Mark completed tasks in docs/TASK_NAME/todo.md as you finish them.
 Make atomic changes — one logical unit at a time.
