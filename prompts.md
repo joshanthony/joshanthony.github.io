@@ -5,9 +5,7 @@ layout: prompts
 permalink: /prompts/
 ---
 
-# Useful Prompts
-
-### Research {#research}
+## Research {#research}
 
 ```prompt
 You are an expert TOPIC software engineer helping me with a codebase change.
@@ -25,7 +23,7 @@ If you cannot find something, say so explicitly. Do not infer or speculate.
 Do not implement anything yet.
 ```
 
-### Plan {#plan}
+## Plan {#plan}
 
 ```prompt
 Use docs/TASK_NAME/research.md as the source of truth.
@@ -43,7 +41,7 @@ If a new pattern is necessary, flag it explicitly as a decision point.
 Do not implement anything yet.
 ```
 
-### Review {#review}
+## Review {#review}
 
 ```prompt
 I added inline notes and feedback to docs/TASK_NAME/plan.md (usually prefixed with a dash e.g. "- this is not needed").
@@ -52,7 +50,7 @@ Keep the same structure unless a note requests a restructure.
 Do not implement yet.
 ```
 
-### Implement {#implement}
+## Implement {#implement}
 
 ```prompt
 Implement everything PHASE_NUMBER in docs/TASK_NAME/todo.md using the information provided in docs/TASK_NAME/plan.md
