@@ -70,3 +70,10 @@ Run typecheck and tests as you go.
 Fix issues introduced by your changes.
 Do not stop until all tasks are complete.
 ```
+
+## Audit {#audit}
+
+Prompt:
+```text
+Audit this work critically for faulty logic, hidden assumptions, contradictions. blind spots, edge cases and realistic failure modes. For each issue ask "then what?" to trace downstream consequences. Only flag problems with a concrete plausible failure scenario. Distinguish real defects from speculative concerns and prefer leaving correct code unchanged. Present each confirmed problem, it's impact and the recommended solution. Do not make changes yet. After the audit ask the user which fixes they want you to implement
+```
