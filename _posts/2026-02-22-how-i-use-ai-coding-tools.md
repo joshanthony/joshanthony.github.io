@@ -164,11 +164,4 @@ Make only this change:
 Keep everything else unchanged.
 ```
 
-## 7: Review
-
-Prompt:
-```text
-Audit this work critically for faulty logic, hidden assumptions, contradictions. blind spots, edge cases and realistic failure modes. For each issue ask "then what?" to trace downstream consequences. Only flag problems with a concrete plausible failure scenario. Distinguish real defects from speculative concerns and prefer leaving correct code unchanged. Present each confirmed problem, it's impact and the recommended solution. Do not make changes yet. After the audit ask the user which fixes they want you to implement
-```
-
 The whole point of this workflow is to push decisions as early as possible. By the time implementation starts the plan is already settled, the todo list is granular, and the AI has a written record to follow. Corrections at the review stage cost nothing. Corrections mid-implementation cost a lot.
